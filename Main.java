@@ -5,6 +5,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+// Jakob Griffith
+// AI CS4013
+// April 2013
+
 public class Main
 {
 	
