@@ -91,4 +91,4 @@ Node: middle node  value: pat children:
 
 which as an image looks as follows
 
-[id]: http://i.imgur.com/gkGHtBo.png
+![ScreenShot](https://raw.github.com//kobaj/JavaDecisionTree/master/decisiontree.png)
