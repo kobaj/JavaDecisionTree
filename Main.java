@@ -21,7 +21,7 @@ public class Main
 	{
 		System.out.println("begin");
 		
-		// conditions are values for attributes
+		// conditionas are possible values for attributes
 		Condition gr_20 = new Condition(">20");
 		Condition gr_50 = new Condition(">50");
 		Condition gr_80 = new Condition(">80");
@@ -29,12 +29,14 @@ public class Main
 		Condition no = new Condition("no");
 		Condition scattered = new Condition("scattered");
 		Condition overcast = new Condition("overcast");
-		
+
+		// these attributes are overall, all possible values
 		Attribute[] real_attributes = new Attribute[3];
 		real_attributes[0] = new Attribute("%", gr_20, gr_50, gr_80);
 		real_attributes[1] = new Attribute("rained", yes, no);
 		real_attributes[2] = new Attribute("cloudy", scattered, no, overcast);
-		
+
+		// these attributes will be linked to examples	
 		Attribute[] example_attributes = new Attribute[6];
 		example_attributes[0] = new Attribute("%", gr_20, gr_50, gr_80);
 		example_attributes[1] = new Attribute("%", gr_20, gr_50, gr_80);
@@ -42,10 +44,11 @@ public class Main
 		example_attributes[3] = new Attribute("rained", yes, no);
 		example_attributes[4] = new Attribute("cloudy", scattered, no, overcast);
 		example_attributes[5] = new Attribute("rain_today", yes, no);
-		
+
 		// examples contain attributes and a value
 		// here we will build a decision tree based on 'weather'
 		Example[] examples = new Example[10];
+		// these are in the order of the example attributes above
 		examples[0] = new Example(example_attributes, gr_20, gr_50, no, no, scattered, yes);
 		examples[1] = new Example(example_attributes, gr_20, no, no, no, no, no);
 		examples[2] = new Example(example_attributes, no, no, no, yes, no, no);
@@ -56,8 +59,8 @@ public class Main
 		examples[7] = new Example(example_attributes, no, no, no, no, no, no);
 		examples[8] = new Example(example_attributes, gr_20, no, no, no, overcast, yes);
 		examples[9] = new Example(example_attributes, gr_20, no, no, no, scattered, yes);
-		
-		Attribute desired_attribute = example_attributes[5];
+
+		Attribute desired_attribute = example_attributes[example_attributes.length - 1]; // desired attribute is the last
 		
 		Node<?> tree = learnDecision(examples, real_attributes, yes, desired_attribute);
 		
